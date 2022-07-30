@@ -1,0 +1,425 @@
+body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #f0ff00;
+  flex-direction: column;
+}
+
+.body{
+  height: 80px;
+  width: 140px;
+  background: #040404;
+  border-radius: 5px;
+  position: relative;
+  animation: animate 0.5s linear infinite;
+}
+
+.body:before{
+  position: absolute;
+  content: '';
+  height: 30px;
+  width: 60px;
+  background: #f0ff00;
+  top: -10px;
+  right: -20px;
+  transform: rotate(40deg);
+  border-radius: 0 0 0 50px;
+}
+
+@keyframes animate{
+  100%{
+      transform: translateY(2px);
+  }
+}
+  .body .wheel{
+      height: 40px;
+      width: 40px;
+      background: #000;
+      border: 3px solid #f0ff00;
+      position: absolute;
+      border-radius: 50px;
+      margin-left: 50px;
+      bottom: -20px;
+      animation: wheels 0.6s linear infinite;
+  }
+
+  .body .wheel:before{
+      position: absolute;
+      content: '';
+      background: #f0ff00;
+      height: 5px;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+  .body .wheel:after{
+      position: absolute;
+      content: '';
+      background: #f0ff00;
+      height: 5px;
+      width: 100%;
+      top: 50%;
+      transform: translatey(-50%) rotate(90deg);
+  }
+
+  @keyframes wheels{
+      100%{
+          transform: rotate(360deg);
+      }
+    }
+    .body .front{
+      position: absolute;
+      margin: 0 80px;
+    }
+    .body .back{
+      position: absolute;
+      margin: 0 10px;
+    }
+    .cover{
+      position: relative;
+      height: 10px;
+      width: 200px;
+      bottom: -15px;
+      overflow: hidden;
+    }
+    .cover .path{
+      height: 8px;
+      width: 600%;
+      background: #000;
+      position: absolute;
+      animation: path 1.5s linear infinite;
+    }
+
+    .path:before{
+      position: absolute;
+      content: '';
+      height: 8px;
+      width: 18px;
+      background: #fff;
+      left: 20%;
+    }
+    .path:after{
+      position: absolute;
+      content: '';
+      height: 8px;
+      width: 18px;
+      background: #fff;
+      right: 60%;
+    }
+
+    @keyframes path{
+      100%{
+          transform: translateX(-50%);
+      }
+    }
+    .text{
+      position: relative;
+      text-align: center;
+      bottom: -30px;
+      font-weight: 800%;
+      font-size: 20px;
+      font-family: sans-serif;
+    } 
+
+
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+#start{
+  font-family:Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  padding: 20px;
+  position: fixed;
+  top:50%;
+  left:50%;
+  margin-top: -100px;
+  margin-left: -100px;
+  height:200px;
+  width:250px;
+  text-align: center;
+}
+
+#hScore{
+  font-family:Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  padding: 20px;
+  position: fixed;
+  top:60%;
+  left:50%;
+  margin-top: -100px;
+  margin-left: -100px;
+  height:200px;
+  width:250px;
+  text-align: center; 
+}
+
+#about{
+  font-family:Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  padding: 20px;
+  position: fixed;
+  top:70%;
+  left:50%;
+  margin-top: -100px;
+  margin-left: -100px;
+  height:200px;
+  width:250px;
+  text-align: center;  
+}
+
+
+#start a, #about a {
+  border: 3px solid #ffffff;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: block;
+  width: 200px;
+  text-align: center;
+  font-size:2em;
+  display: inline-block;
+}
+
+#hScore a{
+  border: 3px solid #ffffff;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: block;
+  width: 200px;
+  text-align: center;
+  font-size:2em;
+  display: inline-block;
+}
+
+#start a:hover, #about a:hover, #hScore a:hover, #restart a:hover, #menu a:hover { background-color: #ffffff; color: #1bafdb; }
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.car,
+.enemy {
+  width: 50px;
+  height: 100px;   
+  background:goldenrod;
+  position: absolute;
+  bottom: 120px;
+  background-image: url(last2.png);
+  background-repeat: no-repeat;
+  border-top-left-radius:20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 10px;
+  background-size: 100% 100%;
+  box-shadow: 10px 20px 10px rgba(9,0,0,0.5);
+
+
+}
+
+.gameArea {
+  width: 400px;
+  height: 100vh;
+  background: #2d3436;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  border-right: 7px dashed blue;
+  border-left: 7px dashed blue;
+  box-shadow: 0px 1px 5px red,
+      0px 10px 10px blue,
+      5px 1px 3px Darkblue,
+      1px 20px 300px orange,
+       -810px 20px 0px  rgba(0, 1, 1, 0.1);
+  /* box-shadow: 10px 20px 10px rgba(9,0,0,0.5);*/
+
+}
+
+.lines {
+  width: 10px;
+  height: 100px;
+  background: yellow;
+  position: absolute;
+  margin-left: 195px;
+
+}
+
+
+#result{
+  font-family:Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    padding: 20px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top: -100px;
+    margin-left: -100px;
+    height:200px;
+    width:250px;
+    text-align: center;
+}
+
+#result a{
+  border: 3px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    display: block;
+    width: 200px;
+    text-align: center;
+    font-size:2em;
+    display: inline-block;
+}
+
+
+
+#restart {
+  font-family:Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  padding: 20px;
+  position: fixed;
+  top:70%;
+  left:40%;
+  margin-top: -100px;
+  margin-left: -100px;
+  height:200px;
+  width:250px;
+  text-align: center;  
+}
+
+#restart a{
+  border: 3px solid #ffffff;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 15px;     
+  cursor: pointer;
+  display: block;
+  width: 200px;
+  text-align: center;
+  font-size:2em;
+  display: inline-block;
+}
+
+#menu{
+    font-family:Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    padding: 20px;
+    position: fixed;
+    top:70%;
+    left:70%;
+    margin-top: -100px;
+    margin-left: -100px;
+    height:200px;
+    width:250px;
+    text-align: center;  
+  }
+  
+  #menu a{
+    border: 3px solid #f1f0f0;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    display: block;
+    width: 200px;
+    text-align: center;
+    font-size:2em;
+    display: inline-block;
+  }
+
+.score{
+  line-height: 75px;
+    width: 150px;
+    background-color: rgb(219, 13, 13);
+    position: left;
+    top: 15px;
+    left: 40px;
+    text-align: center;
+    color: black;
+    font-size: 1.5em;
+    font-family: fantasy;
+    box-shadow: 0 5px 5px #777;
+    position: absolute;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+  
+
+.main {
+  padding: 20px;
+  font-family: 'Helvetica', serif;
+  box-shadow: 5px 5px 7px 5px #888888;
+  position: relative;
+}
+
+.main h1 {
+  font-size: 40px;
+  text-align: center;
+  font-family: 'Helvetica', serif;
+}
+
+.container{
+  display: none;
+  width: 500px;
+}
+
+
+input {
+  font-family: 'Helvetica', serif;
+  width: 100%;
+  font-size: 20px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  border-bottom: 2px solid #767474;
+}
+
+input[type=submit] {
+  font-family: 'Helvetica', serif;
+  width: 100%;
+  background-color: #767474;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  margin: 4px 2px;
+  border-radius: 10px;
+}
+
+
